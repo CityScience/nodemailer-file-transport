@@ -82,11 +82,11 @@ FileTransport.prototype.send = function(mail, cb) {
 
   if (Array.isArray(data.to)) {
     for (let i = 0; i < data.to.length; i++) {
-      err = this.saveEmailToFile(data.to[i], data.subject, data.html, data.attachments);
+      err = this.saveEmailToFile(data.to[i], data.subject, data.html || data.txt, data.attachments);
       if (err) break;
     }
   } else {
-    err = this.saveEmailToFile(data.to, data.subject, data.html, data.attachments);
+    err = this.saveEmailToFile(data.to, data.subject, data.html || data.txt, data.attachments);
   }
 
   if (err) {
